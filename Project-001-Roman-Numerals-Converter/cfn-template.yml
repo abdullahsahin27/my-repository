@@ -2,8 +2,11 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: |
   CloudFormation template for roman numerals web app
 
-#Parameters:
-  
+Parameters:
+  KeyPair:
+    Description: Key Pair for EC2 Instance
+    Type: AWS::EC2::KeyPair::KeyName
+
 Resources:
 
   WebServerSecurityGroup:
@@ -31,7 +34,7 @@ Resources:
         - !Ref WebServerSecurityGroup
       Tags:
         - Key : KeyName
-          Value : WebServer-Abdu
-      UserData:
-        Fn::Base64:
-Outputs:
+          Value : WebServer
+      UserData: "string"
+        
+#Outputs:
